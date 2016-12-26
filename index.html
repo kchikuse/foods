@@ -1,9 +1,11 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Bible Meat Checker</title>
     <meta charset="utf-8">
+    <meta name="author" content="Knowledge Chikuse">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <link rel="icon" href="icon.png">
+    <link rel="icon" href="css/icon.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -11,12 +13,26 @@
 		<form>
 			<label class="item item-input">
 				<i class="icon ion-search placeholder-icon"></i> 
-				<input type="text" placeholder="Search">
+				<input type="text" placeholder="Enter a meat name">
 			</label>
 		</form>
 		<ul class="list"></ul>
 	</div>
-	<script src="js/data.js"></script>
-	<script src="js/app.js"></script>
+	<script src="app.js"></script>
+	<script>
+		document.querySelector('input').onkeyup = function() {
+
+			var meats = get(this.value)
+
+			document.querySelector('ul').innerHTML = `
+				${meats.map(meat => `
+						<a class="item"> ${meat.name}
+							<span class="item-note ${meat.type}">
+								${meat.type}
+							</span>
+						</a>`
+					).join('\n')} `
+		}
+	</script>
 </body>
 </html>

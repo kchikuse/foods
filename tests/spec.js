@@ -1,27 +1,25 @@
 describe('find function', function() {
 
-    var foods = find('pig')
+    var meats = get('pig')
 
-    it('must find 4 foods', function() {
-        expect(foods.length).toEqual(4)
+    it('must return 5 meats', function() {
+        expect(meats.length).toEqual( 5 )
     })
 
-    it('must find the clean foods in correct order', function() {
-        expect(foods[1]).toEqual({ 'name': 'Pig Fish', 'type': 'clean' })
-        expect(foods[3]).toEqual({ 'name': 'Pigeon', 'type': 'clean' })
+    it('must return the meats in the correct order', function() {
+        expect(meats[0]).toEqual({ 'name': 'Guinea Pig','type': 'unclean' })
+        expect(meats[1]).toEqual({ 'name': 'Pig',       'type': 'unclean' })
+        expect(meats[2]).toEqual({ 'name': 'Pig Fish',  'type': 'clean' })
+        expect(meats[3]).toEqual({ 'name': 'Pig Lard',  'type': 'unclean' })
+        expect(meats[4]).toEqual({ 'name': 'Pigeon',    'type': 'clean' })
     })
 
-    it('must find the unclean foods in correct order', function() {
-        expect(foods[0]).toEqual({ 'name': 'Pig', 'type': 'unclean' })
-        expect(foods[2]).toEqual({ 'name': 'Pig Lard', 'type': 'unclean' })
+    it('must be space and case insensitive', function() {
+        expect(meats).toEqual( get('  PiG  ') )
     })
 
-    it('must be case insensitive', function() {
-        expect(foods).toEqual(find('PiG'))
-    })
-
-    it('must return an empty array if less than 2 characters are given', function() {
-        expect(find('p')).toEqual( [] )
+    it('must return an empty array if nothing is given', function() {
+        expect(get(' ')).toEqual( [] )
     })
 
 })
