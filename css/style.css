@@ -26,7 +26,7 @@ html {
 
 body {
   -webkit-touch-callout: none;
-  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
   text-size-adjust: none;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
@@ -135,9 +135,6 @@ ul {
   .list-inset .item.item-input input {
     padding-right: 44px; }
 
-form {
-  margin: 0 0 1.42857; }
-
 label, input{
   font-weight: normal;
   font-size: 14px;
@@ -197,3 +194,4 @@ input::-webkit-input-placeholder {
     padding-right: 6px; }
   .placeholder-icon:last-child {
     padding-left: 6px; }
+    
