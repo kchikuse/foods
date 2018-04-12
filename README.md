@@ -1,4 +1,4 @@
-# Bible meats
+# Kosher foods
 
 Biblically clean and unclean animals 
 
