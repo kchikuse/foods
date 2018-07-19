@@ -4,6 +4,7 @@ compile:
   stage: build
   script:
     - mkdir -p dist/
+    - ls -la
     - cp css/ dist/
     - cp app.js dist/
     - cp index.html dist/
