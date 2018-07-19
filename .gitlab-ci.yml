@@ -1,0 +1,9 @@
+pages:
+  stage: deploy
+  script:
+    - mkdir -p public/
+    - cp css/ public/
+    - cp {index.html,app.js,my.appcache} public/
+  artifacts:
+    paths:
+      - public 
