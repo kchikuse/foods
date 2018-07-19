@@ -3,18 +3,21 @@ image: alpine
 compile:
   stage: build
   script:
-    - echo 123
+    - mkdir -p dist/
+    - cp css/ dist/
+    - cp app.js dist/
+    - cp index.html dist/
+    - cp my.appcache dist/
   artifacts:
     paths:
-      - .
+      - dist/
 
 pages:
   stage: deploy
   dependencies:
     - compile
   script:
-    - mkdir -p public/
-    - cp {*.html,*.js,my.appcache,css/} public/
+    - mv dist/ public/
   artifacts:
     paths:
       - public 
