@@ -1,13 +1,48 @@
 (function() {
 
-	var MEATS = {
+	document.querySelector('input').oninput = function() {
 
+		const meats = search(this.value)
+
+		document.querySelector('ul').innerHTML =
+			meats.map(e => `
+				<a class="item"> ${e.name}
+					<span class="item-note ${e.type}">
+						${e.type}
+					</span>
+				</a>`
+			).join('\n')
+	}
+
+	const search = query => {
+		const results = []
+
+		query = query.trim().toLowerCase()
+
+		if(query.length) {
+			
+			Object.keys(MEATS).forEach(type => {
+				
+				let meats = MEATS[type].filter(i => i.toLowerCase().indexOf(query) > -1)
+				
+				for(let meat of meats) {
+					results.push({
+						'name': meat, 
+						'type': type
+					})
+				}
+			})
+		}
+
+		return results.sort((a, b) => a.name > b.name ? 1 : (b.name > a.name ? -1 : 0 ))
+	}
+
+	const MEATS = {
 		clean: [
 			'Cricket', 
 			'Grasshopper', 
 			'Katydid',
 			'Locust',
-
 			'Antelope',
 			'Bison',
 			'Buffalo',
@@ -78,7 +113,6 @@
 			'White Tail Deer',
 			'Wildebeest',
 			'Yak',
-
 			'Albacore',
 			'Crevalle',
 			'Horse Mackerel',
@@ -190,7 +224,7 @@
 			'Lake Trout',
 			'Sand Sea Trout',
 			'White Sea Trout',
-			'Spotted SeaTrout',
+			'Spotted Sea Trout',
 			'Tunas',
 			'Bluefin',
 			'Yellowfin',
@@ -198,7 +232,6 @@
 			'White Fish',
 			'Perch',
 			'Yellow Perch',
-
 			'Chicken',
 			'Dove',
 			'Duck',
@@ -219,7 +252,6 @@
 		],
 
 		unclean: [
-
 			'Butterfly',
 			'Ambush Bug',
 			'Ant',
@@ -314,7 +346,6 @@
 			'Weevil',
 			'Woodborer',
 			'Yellowjacket',
-
 			'Albatross',
 			'Bittern',
 			'Buzzard',
@@ -355,7 +386,6 @@
 			'Vulture',
 			'Water hen',
 			'Woodpecker', 
-
 			'Abalone',
 			'Bullhead',
 			'Catfish',
@@ -390,7 +420,6 @@
 			'Swordfish',
 			'Walrus',
 			'Whale',
-
 			'Alligator',
 			'Alpaca',
 			'Llama',
@@ -434,6 +463,7 @@
 			'Koala',
 			'Echidna',
 			'Llama',
+			'Lemur',
 			'Lizards',
 			'Mice',
 			'Mole',
@@ -474,37 +504,6 @@
 			'Weasel',
 			'Wolverine'
 		]
-	}
-
-	var sorter = function(a, b) {
-		return a.name > b.name ? 1 : ( (b.name > a.name) ? -1 : 0 )
-	}
-
-	window.get = function( query ) {
-
-		var results = []
-
-		query = query.trim().toLowerCase()
-
-		if( ! query.length ) return []
-
-		Object.keys(MEATS).forEach(function(type) {
-
-			MEATS[ type ].forEach(function(meat) {
-				
-				if( meat.toLowerCase().indexOf(query) > -1 ) {
-					
-					results.push({
-						'name': meat, 
-						'type': type
-					})
-
-				}
-			})
-
-		})
-
-		return results.sort(sorter)
 	}
 
 })()

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="my.appcache">
+<html><!-- manifest="my.appcache"> -->
 <head>
 	<title>Bible Meat Checker</title>
     <meta charset="utf-8">
@@ -21,20 +21,5 @@
 		<ul class="list"></ul>
 	</div>
 	<script src="app.js"></script>
-	<script>
-		document.querySelector('input').onkeyup = function() {
-
-			var meats = get(this.value)
-
-			document.querySelector('ul').innerHTML = `
-				${meats.map(meat => `
-						<a class="item"> ${meat.name}
-							<span class="item-note ${meat.type}">
-								${meat.type}
-							</span>
-						</a>`
-					).join('\n')} `
-		}
-	</script>
 </body>
 </html>
