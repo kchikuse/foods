@@ -1,25 +1,32 @@
-describe('find function', function() {
+import { search } from '../js/meats.js';
 
-    var meats = get('pig')
+describe('The search function', () => {
 
-    it('must return 5 meats', function() {
-        expect(meats.length).toEqual( 5 )
-    })
+    const meats = search('pig');
 
-    it('must return the meats in the correct order', function() {
-        expect(meats[0]).toEqual({ 'name': 'Guinea Pig','type': 'unclean' })
-        expect(meats[1]).toEqual({ 'name': 'Pig',       'type': 'unclean' })
-        expect(meats[2]).toEqual({ 'name': 'Pig Fish',  'type': 'clean' })
-        expect(meats[3]).toEqual({ 'name': 'Pig Lard',  'type': 'unclean' })
-        expect(meats[4]).toEqual({ 'name': 'Pigeon',    'type': 'clean' })
-    })
+    it('returns the correct results', () => {
+        expect(meats.length).toEqual( 5 );
+    });
 
-    it('must be space and case insensitive', function() {
-        expect(meats).toEqual( get('  PiG  ') )
-    })
+    it('returns the results in the correct order', () => {
+        expect(meats[0]).toEqual({ 'name': 'Guinea Pig','kosher': false });
+        expect(meats[1]).toEqual({ 'name': 'Pig',       'kosher': false });
+        expect(meats[2]).toEqual({ 'name': 'Pig Fish',  'kosher': true });
+        expect(meats[3]).toEqual({ 'name': 'Pig Lard',  'kosher': false });
+        expect(meats[4]).toEqual({ 'name': 'Pigeon',    'kosher': true });
+    });
 
-    it('must return an empty array if nothing is given', function() {
-        expect(get(' ')).toEqual( [] )
-    })
+    it('is space and case insensitive', () => {
+        expect(search('  PiG  ')).toEqual(meats);
+    });
 
-})
+    it('returns an empty array if nothing is given', () => {
+        expect(search('')) .toEqual( [] );
+        expect(search(' ')).toEqual( [] );
+    });
+
+    it('returns an empty array if there are no hits', () => {
+        expect(search('Blurrg')).toEqual( [] );
+    });
+
+});

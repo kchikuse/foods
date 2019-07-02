@@ -1,25 +1,29 @@
 <!DOCTYPE html>
-<html><!-- manifest="my.appcache"> -->
+<html lang="en">
 <head>
-	<title>Bible Meat Checker</title>
-    <meta charset="utf-8">
-    <meta name="author" content="Knowledge Chikuse">
+	<meta charset="utf-8">
+	<meta name="author" content="Knowledge Chikuse">
+	<meta name="description" content="Shows you which meats are safe to eat">
 	<meta name="viewport" content="width=device-width">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="theme-color" content="#ff6600">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="icon" href="css/icon.png">
-    <link rel="apple-touch-icon" href="css/icon.png">
-    <link rel="stylesheet" href="css/style.css">
+	<link href="manifest.json" rel="manifest">
+	<link href="style.css" rel="stylesheet">
+	<link href="favicon.ico" rel="apple-touch-icon">
+	<link href="favicon.ico" rel="icon">
+	<title>Kosher Meat Checker</title>
 </head>
 <body>
-	<div class="list list-inset">
-		<label class="item item-input">
-			<i class="icon ion-search placeholder-icon"></i> 
-			<input type="text" placeholder="Enter a meat name" autofocus>
-		</label>
-		<ul class="list"></ul>
-	</div>
-	<script src="app.js"></script>
+	<label>
+		<input type="text" placeholder="Enter meat to check" autofocus>
+	</label>
+	<main oncontextmenu="return false">
+		<ol>
+			<app />
+		</ol>
+	</main>
+	<script src="app.js" defer></script>
+	<noscript>Enable JavaScript</noscript>
 </body>
 </html>
