@@ -4,10 +4,9 @@ compile:
   stage: build
   script:
     - mkdir -p dist/
-    - cp -r css/ dist/
-    - cp app.js dist/
-    - cp index.html dist/
-    - cp my.appcache dist/
+    - cp -r images/ dist/
+    - cp -r tests/ dist/
+    - cp index.html app.js style.css favicon.ico manifest.json dist/
   artifacts:
     paths:
       - dist/
@@ -20,4 +19,4 @@ pages:
     - mv dist/ public/
   artifacts:
     paths:
-      - public 
+      - public
