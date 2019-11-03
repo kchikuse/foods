@@ -80,7 +80,7 @@
     'Warthog', 'Peccary', 'Platypus', 'Bacon', 'Pork', 'Pork sausage', 'Pangolin', 'Ham', 'Pig Lard', 'Toad', 'Turtle', 'Wallaby', 'Weasel', 'Wolverine',
     'Sea eagle', 'Nighthawk', 'Nightjar', 'Northern carmine bee eater', 'Glede', 'Hoopoe', 'Indian roller', 'Kingfisher', 'Ossifrage', 'Peacock', 'Swan',
     'Red kite', 'Ferret', 'Stoat', 'Shrew', 'Chameleon', 'Skink', 'Mole rat', 'Scorpion', 'Centipede', 'Ants', 'Mopane worms', 'Tortoise', 'Escargot',
-    'Slug', 'Caviar', 
+    'Slug', 'Caviar','Koi fish','Earthworm','Hare' 
 ];
 
 }());
