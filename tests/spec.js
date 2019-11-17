@@ -1,4 +1,4 @@
-import { search } from '../js/meats.js';
+import { search } from '../app.js';
 
 describe('The search function', () => {
 

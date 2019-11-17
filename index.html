@@ -3,27 +3,42 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="author" content="Knowledge Chikuse">
-	<meta name="description" content="Shows you which meats are safe to eat">
+	<meta name="description" content="Check if your meat is safe to eat">
 	<meta name="viewport" content="width=device-width">
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="theme-color" content="#ff6600">
-	<link href="manifest.json" rel="manifest">
 	<link href="style.css" rel="stylesheet">
-	<link href="favicon.ico" rel="apple-touch-icon">
-	<link href="favicon.ico" rel="icon">
-	<title>Kosher Meat Checker</title>
+	<link href="manifest.json" rel="manifest">
+	<link href="favicon.png" rel="apple-touch-icon">
+	<link href="favicon.png" rel="icon">
+	<title>Kosher Check</title>
 </head>
-<body>
-	<label>
-		<input type="text" placeholder="Enter meat to check" autofocus>
-	</label>
-	<main oncontextmenu="return false">
-		<ol>
-			<app />
-		</ol>
-	</main>
-	<script src="app.js" defer></script>
-	<noscript>Enable JavaScript</noscript>
+<body oncontextmenu="return false">
+	<input id="search" 
+		type="search" 
+		placeholder="Search" 
+		autocomplete="off" 
+		aria-label="Search" autofocus>
+	<ol></ol>
+	<script type="module" src="app.js"></script>
+	<script type="module">
+		import { search } from "./app.js";
+
+		addEventListener("load", async () => {
+			await navigator.serviceWorker.register("sw.js");
+
+			const ol = document.querySelector("ol");
+
+			document.querySelector("input").oninput = function () {
+				ol.innerHTML = search(this.value).map(m => `
+					<li data-kosher="${m.kosher}">
+						${m.name}
+					</li>`
+				).join('');
+			};
+		});
+	</script>
+	<noscript>Please enable JavaScript</noscript>
 </body>
 </html>

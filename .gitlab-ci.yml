@@ -5,8 +5,7 @@ compile:
   script:
     - mkdir -p dist/
     - cp -r images/ dist/
-    - cp -r tests/ dist/
-    - cp index.html app.js style.css favicon.ico manifest.json dist/
+    - cp index.html favicon.ico manifest.json dist/
   artifacts:
     paths:
       - dist/

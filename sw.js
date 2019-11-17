@@ -2,7 +2,7 @@ const CACHE = 'static-cache';
 
 const ASSETS = [
     '/index.html',
-    '/favicon.ico',
+    '/favicon.png',
     '/style.css',
     '/app.js'
 ];

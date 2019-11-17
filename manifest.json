@@ -1,8 +1,8 @@
 {
     "version": "1.0.0",
     "display": "standalone",
-    "short_name": "Kosher Meat",
-    "name": "Kosher Meat Checker",
+    "short_name": "Kosher Check",
+    "name": "Kosher Check",
     "author": "Knowledge Chikuse",
     "background_color": "#ffffff",
     "theme_color": "#ff6600",
@@ -10,12 +10,12 @@
     "lang":"en_US",
     "icons": [
         {
-            "src": "/images/icons-192.png",
+            "src": "images/icons-192.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "/images/icons-512.png",
+            "src": "images/icons-512.png",
             "type": "image/png",
             "sizes": "512x512"
         }
