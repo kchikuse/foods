@@ -15,18 +15,14 @@
 	<title>Kosher Check</title>
 </head>
 <body oncontextmenu="return false">
-	<input id="search" 
-		type="search" 
-		placeholder="Search" 
-		autocomplete="off" 
-		aria-label="Search" autofocus>
+	<input type="search" placeholder="Search..." autocomplete="off" aria-label="Search" autofocus>
 	<ol></ol>
 	<script type="module" src="app.js"></script>
 	<script type="module">
 		import { search } from "./app.js";
 
 		addEventListener("load", async () => {
-			await navigator.serviceWorker.register("sw.js");
+			//await navigator.serviceWorker.register("sw.js");
 
 			const ol = document.querySelector("ol");
 
@@ -37,6 +33,9 @@
 					</li>`
 				).join('');
 			};
+
+			document.querySelector("input").value = "c";
+			document.querySelector("input").oninput();
 		});
 	</script>
 	<noscript>Please enable JavaScript</noscript>
