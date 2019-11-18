@@ -22,7 +22,7 @@
 		import { search } from "./app.js";
 
 		addEventListener("load", async () => {
-			//await navigator.serviceWorker.register("sw.js");
+			await navigator.serviceWorker.register("sw.js");
 
 			const ol = document.querySelector("ol");
 
@@ -33,9 +33,6 @@
 					</li>`
 				).join('');
 			};
-
-			document.querySelector("input").value = "c";
-			document.querySelector("input").oninput();
 		});
 	</script>
 	<noscript>Please enable JavaScript</noscript>
