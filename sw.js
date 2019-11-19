@@ -3,6 +3,7 @@ const CACHE = 'static-cache';
 const ASSETS = [
     '/index.html',
     '/favicon.png',
+    '/images/bg.webp',
     '/style.css',
     '/app.js'
 ];

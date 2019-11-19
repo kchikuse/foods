@@ -15,25 +15,29 @@
 	<title>Kosher Check</title>
 </head>
 <body oncontextmenu="return false">
-	<input type="search" placeholder="Search..." autocomplete="off" aria-label="Search" autofocus>
+	<input type="search" 
+		placeholder="Search..." 
+		autocomplete="off" 
+		aria-label="Search" 
+		autofocus>
 	<ol></ol>
 	<script type="module" src="app.js"></script>
 	<script type="module">
-		import { search } from "./app.js";
+	import { search } from "./app.js";
 
-		addEventListener("load", async () => {
-			await navigator.serviceWorker.register("sw.js");
+	addEventListener("load", async () => {
+		await navigator.serviceWorker.register("sw.js");
 
-			const ol = document.querySelector("ol");
+		const ol = document.querySelector("ol");
 
-			document.querySelector("input").oninput = function () {
-				ol.innerHTML = search(this.value).map(m => `
-					<li data-kosher="${m.kosher}">
-						${m.name}
-					</li>`
-				).join('');
-			};
-		});
+		document.querySelector("input").oninput = function () {
+			ol.innerHTML = search(this.value).map(m => `
+				<li data-kosher="${m.kosher}">
+					${m.name}
+				</li>`
+			).join('');
+		};
+	});
 	</script>
 	<noscript>Please enable JavaScript</noscript>
 </body>
