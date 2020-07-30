@@ -29,15 +29,14 @@ body::before {
     width: 100%; 
     height: 100%;  
     opacity: 0.2; 
-    z-index: -1;
-    background: url(images/bg.webp) center no-repeat; 
+    z-index: -1; 
     background-position: center;
     background-size: cover;
 }
 
 input {
     width: 100%;
-    height: 100%;
+    height: 10vh;
     font-size: 200%;
     background-color: inherit;
     color: inherit;
